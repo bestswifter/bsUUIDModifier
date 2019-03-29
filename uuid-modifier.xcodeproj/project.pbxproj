@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0D714AF2242181E000AFBAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D714AE2242181E000AFBAE /* main.cpp */; };
+		B0D714B822421849000AFBAE /* libLIEF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D714B722421849000AFBAE /* libLIEF.a */; };
+		B0D7165E22421E90000AFBAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D714AE2242181E000AFBAE /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B0D714AB2242181E000AFBAE /* uuid-modifier */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "uuid-modifier"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D714AB2242181E000AFBAE /* bsUUIDModifier */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bsUUIDModifier; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D714AE2242181E000AFBAE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B0D714B722421849000AFBAE /* libLIEF.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLIEF.a; path = LIEF/lib/libLIEF.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D714B822421849000AFBAE /* libLIEF.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,13 +46,14 @@
 			children = (
 				B0D714AD2242181E000AFBAE /* uuid-modifier */,
 				B0D714AC2242181E000AFBAE /* Products */,
+				B0D714B622421848000AFBAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		B0D714AC2242181E000AFBAE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0D714AB2242181E000AFBAE /* uuid-modifier */,
+				B0D714AB2242181E000AFBAE /* bsUUIDModifier */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +64,14 @@
 				B0D714AE2242181E000AFBAE /* main.cpp */,
 			);
 			path = "uuid-modifier";
+			sourceTree = "<group>";
+		};
+		B0D714B622421848000AFBAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D714B722421849000AFBAE /* libLIEF.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,7 +91,7 @@
 			);
 			name = "uuid-modifier";
 			productName = "uuid-modifier";
-			productReference = B0D714AB2242181E000AFBAE /* uuid-modifier */;
+			productReference = B0D714AB2242181E000AFBAE /* bsUUIDModifier */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D714AF2242181E000AFBAE /* main.cpp in Sources */,
+				B0D7165E22421E90000AFBAE /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +252,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LIEF/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LIEF/lib/**",
+					"$(PROJECT_DIR)/LIEF/lib",
+				);
+				PRODUCT_NAME = bsUUIDModifier;
 			};
 			name = Debug;
 		};
@@ -248,7 +267,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LIEF/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LIEF/lib/**",
+					"$(PROJECT_DIR)/LIEF/lib",
+				);
+				PRODUCT_NAME = bsUUIDModifier;
 			};
 			name = Release;
 		};
